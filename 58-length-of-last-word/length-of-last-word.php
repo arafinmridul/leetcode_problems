@@ -5,7 +5,7 @@ class Solution {
      * @return Integer
      */
     function lengthOfLastWord($s) {
-        $s = trim($s);
+        $s = rtrim($s);
         $n = strlen($s);
         $ans = 0;
         for($i=$n-1; $i>=0; --$i){

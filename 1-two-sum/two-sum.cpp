@@ -12,15 +12,15 @@ public:
         vector<int> ans(2);
 
         for(int i=0; i<n; ++i){
-            int otherNumber = target - nums[i];
+            int otherNumber = target-nums[i];
 
-            if(mp.count(otherNumber) && mp[otherNumber] != i){
+            if(mp.count(otherNumber) and mp[otherNumber] != i){
                 ans[0] = i;
                 ans[1] = mp[otherNumber];
+                break;
             }
         }
 
         return ans;
-
     }
 };

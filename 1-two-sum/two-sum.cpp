@@ -2,27 +2,25 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         int n = nums.size();
-        map<int, vector<int>> mp;
+
+        map<int,int> mp;
+
         for(int i=0; i<n; ++i){
-            mp[nums[i]].push_back(i);
+            mp[nums[i]] = i;
         }
-        vector<int> ans;
+
+        vector<int> ans(2);
+
         for(int i=0; i<n; ++i){
-            int temp = target - nums[i];
-            int sz = mp[temp].size();
-            if(sz == 0) continue;
-            // 4 tar8
-            if(temp == nums[i] and sz>1){
-                ans.push_back(i);
-                ans.push_back(mp[temp][1]);
-                return ans;
-            }
-            else if(temp != nums[i] and sz > 0){
-                ans.push_back(i);
-                ans.push_back(mp[temp][0]);
-                return ans;
+            int otherNumber = target - nums[i];
+
+            if(mp.count(otherNumber) && mp[otherNumber] != i){
+                ans[0] = i;
+                ans[1] = mp[otherNumber];
             }
         }
+
         return ans;
+
     }
 };

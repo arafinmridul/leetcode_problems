@@ -8,8 +8,7 @@ public:
     {
         if (nums[i] == 0)
         {
-            // cur = max(i,cur);
-            cur = i;
+            cur = max(i,cur);
             while (cur < n and !nums[cur])
                 ++cur;
             if (cur == n)

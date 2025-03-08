@@ -12,7 +12,7 @@
 class Solution {
 public:
     int ans = 0;
-    void dfs(TreeNode* &root, int mx = INT_MIN){
+    void dfs(TreeNode* &root, int mx){
         if(root == NULL)
             return;
         

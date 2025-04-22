@@ -8,7 +8,7 @@ public:
             if(nums[i] == 0){
                 while(j < n and !nums[j])
                     j++;
-                if(j == n) continue;
+                if(j == n) break;
                 swap(nums[i], nums[j]);
             }
         }

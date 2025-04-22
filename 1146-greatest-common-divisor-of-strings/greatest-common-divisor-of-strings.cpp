@@ -1,27 +1,31 @@
 class Solution {
 public:
     string gcdOfStrings(string str1, string str2) {
-        int n = min(str1.size(), str2.size());
-        string ans = "";
+        int a = str1.size();
+        int b = str2.size();
 
         string cur = "";
-        for(int i=0; i<n; ++i){
-            cur += str1[i];
-            if((str1.size()%cur.size()) or (str2.size()%cur.size()))
+        string ans = "";
+
+        // ABC
+        // ABCABC
+        for(int i=1; i<=a; ++i){
+            cur += str1[i-1];
+
+            if(a%i or b%i){
                 continue;
+            }
+            string comp = "";
+            for(int j=0; j< a/i; ++j)
+                comp += cur;
+            if(comp != str1) continue;
+            comp = "";
+            for(int j=0; j < b/i; ++j){
+                comp += cur;
+            }
 
-            int a = str1.size() / cur.size();
-            int b = str2.size() / cur.size();
-            string tmp = "";
-            for(int j=1; j<=a; ++j)
-                tmp += cur;
-            if(tmp != str1) continue;
-            tmp = "";
-            for(int j=1; j<=b; ++j)
-                tmp += cur;
-            if(tmp != str2) continue;
-
-            ans = cur;
+            if(comp != str2) continue;
+                ans = cur;
         }
 
         return ans;
